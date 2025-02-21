@@ -10,7 +10,6 @@ const platform = os.platform();
 let baseSkinPath = "";
 
 if (platform === "win32") {
-  console.log("Running on Windows");
   baseSkinPath = path.join(
     userHome,
     "AppData",
@@ -20,10 +19,49 @@ if (platform === "win32") {
     "skins"
   );
 } else if (platform === "darwin") {
-  console.log("Running on macOS");
   baseSkinPath = path.join(userHome, "Library", "Android", "sdk", "skins");
 }
 
+// Define the source skins directory
+const skinsSourcePath = path.join(xmlDirectory, "skins");
+
+// Function to copy files and directories
+const copyDir = (sourceDir, destDir) => {
+  fs.readdir(sourceDir, (err, items) => {
+    if (err) throw err;
+
+    // Create the destination directory if it doesn't exist
+    fs.mkdir(destDir, { recursive: true }, (err) => {
+      if (err) throw err;
+
+      // Process each item in the source directory
+      items.forEach((item) => {
+        const sourceItem = path.join(sourceDir, item);
+        const destItem = path.join(destDir, item);
+
+        fs.stat(sourceItem, (err, stats) => {
+          if (err) throw err;
+
+          if (stats.isDirectory()) {
+            // If the item is a directory, recursively copy it
+            copyDir(sourceItem, destItem);
+          } else {
+            // If the item is a file, copy it
+            fs.copyFile(sourceItem, destItem, (err) => {
+              if (err) throw err;
+              // console.log(`Copied file: ${sourceItem} to ${destItem}`);
+            });
+          }
+        });
+      });
+    });
+  });
+};
+
+// Copy skins from the source directory to the baseSkinPath
+copyDir(skinsSourcePath, baseSkinPath);
+
+// Read and update XML files
 fs.readdir(xmlDirectory, (err, files) => {
   if (err) throw err;
 
