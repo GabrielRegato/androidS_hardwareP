@@ -1,0 +1,62 @@
+parts {
+    portrait {
+        background {
+            image   device_Port-SilverShadow.png
+        }
+		foreground {
+			mask	fore_port.png
+		}
+		buttons {
+			volume-up {
+				image 	rocker_up.png
+				x		1360
+				y		545
+			}
+			volume-down {
+				image 	rocker_down.png
+				x		1360
+				y		707
+			}
+			power {
+				image 	rocker_power.png
+				x		1356
+				y		1002
+			}
+		}		
+    }
+
+    device {
+        display {
+            width   1080
+            height  2640
+            x       0
+            y       0
+        }
+    }
+}
+
+layouts {
+    portrait {
+        width     1523
+        height    3066
+        color     0x000000
+        event     EV_SW:0:1
+        
+        part1 {
+            name    portrait
+            x       0
+            y       0
+        }
+
+        part2 {
+            name    device
+            x       223
+            y       211
+        }
+    }
+}
+
+network {
+    speed  full
+    delay  none
+}
