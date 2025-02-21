@@ -76,7 +76,7 @@ To import the hardware profiles into Android Studio, follow these steps:
 
   - Click "Finish" to create the virtual device.
 
-  7.- **Launch the Virtual Device**:
+    7.- **Launch the Virtual Device**:
 
 - Back in the AVD Manager, you should see your newly created virtual device listed.
 - Click the "Play" button (green triangle) next to the device to launch it.
@@ -116,9 +116,9 @@ To import the hardware profiles into Android Studio, follow these steps:
 | Galaxy S24 FE    | 2340 x 1080 |
 | Galaxy S24 Plus  | 2340 x 1080 |
 | Galaxy S24 Ultra | 3088 x 1440 |
-| Galaxy S25       | TBD         |
-| Galaxy S25 Plus  | TBD         |
-| Galaxy S25 Ultra | TBD         |
+| Galaxy S25       | 2340 x 1080 |
+| Galaxy S25 Plus  | 3120 x 1440 |
+| Galaxy S25 Ultra | 3120 x 1440 |
 
 ## Disclaimer
 
