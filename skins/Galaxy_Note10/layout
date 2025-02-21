@@ -1,0 +1,57 @@
+parts {
+    portrait {
+        background {
+            image   device_Port-AuraBlack.png
+        }
+		foreground {
+			mask	fore_port.png
+		}
+		buttons {
+			volume-up {
+				image 	rocker_up.png
+				x		273
+				y		643
+			}
+			volume-down {
+				image 	rocker_down.png
+				x		273
+				y		790
+			}
+			power {
+				image 	rocker_power.png
+				x		273
+				y		1096
+			}
+		}		
+    }
+
+    device {
+        display {
+            width   1080
+            height  2280
+            x       0
+            y       0
+        }
+    }
+}
+
+layouts {
+    portrait {
+        width     1707
+        height    2930
+        color     0x000000
+        event     EV_SW:0:1
+        
+        part1 {
+            name    portrait
+            x       0
+            y       0
+        }
+
+        part2 {
+            name    device
+            x       312
+            y       314
+        }
+    }
+}
