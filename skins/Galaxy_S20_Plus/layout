@@ -1,0 +1,57 @@
+parts {
+    portrait {
+        background {
+            image   device_Port-CosmicBlack.png
+        }
+		foreground {
+			mask	fore_port.png
+		}
+		buttons {
+			volume-up {
+				image 	rocker_up.png
+				x		1783
+				y		833
+			}
+			volume-down {
+				image 	rocker_down.png
+				x		1783
+				y		1036
+			}
+			power {
+				image 	rocker_power.png
+				x		1783
+				y		1432
+			}
+		}		
+    }
+
+    device {
+        display {
+            width   1440
+            height  3200
+            x       0
+            y       0
+        }
+    }
+}
+
+layouts {
+    portrait {
+        width     1997
+        height    3731
+        color     0x000000
+        event     EV_SW:0:1
+        
+        part1 {
+            name    portrait
+            x       0
+            y       0
+        }
+
+        part2 {
+            name    device
+            x       277
+            y       259
+        }
+    }
+}
