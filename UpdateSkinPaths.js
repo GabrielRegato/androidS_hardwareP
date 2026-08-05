@@ -20,8 +20,10 @@ if (platform === "win32") {
   );
 } else if (platform === "darwin") {
   baseSkinPath = path.join(userHome, "Library", "Android", "sdk", "skins");
+} else if (platform == "linux") {
+  baseSkinPath = path.join(userHome, "Android", "Sdk", "skins");
 }
-
+ 
 // Define the source skins directory
 const skinsSourcePath = path.join(xmlDirectory, "skins");
 
